@@ -7,12 +7,11 @@ pushd ${workdir}
 
 FAHClient --team 234340 --user jclark_astro --passkey 1733b9ade0070dabf0b4c753ee9af252 \
   --cpu-usage 100  --cpus 4  --gpu=False \
-  --disable-viz \
   --exit-when-done  \
   --max-queue 1 \
   --max-units 1 \
-  --cycles 5000 \
   --checkpoint 1
+  #--cycles 5000 \
 
 # Clean up any configuration data
 rm -f config.xml GPUs.txt

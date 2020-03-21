@@ -1,0 +1,22 @@
+universe = vanilla
+#+SingularityImage = "docker://jclarkastro/folding"
++SingularityImage = "/nv/hp11/jclark308/data/htc-folding/gatech/folding_latest.sif"
+executable = /nv/hp11/jclark308/data/htc-folding/run_FAHClient_cpu
+arguments = "fah_$(cluster)-$(process)"
+#transfer_input_files = folding_latest.sif
+#requirements = (HAS_SINGULARITY=?=TRUE)
+transfer_executable = True
+#request_memory = 2048
+#accounting_group = 
+#accounting_group_user = james.clark
+request_CPUs = 4
+stream_output = True
+stream_error = True
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_output_files = fah_$(cluster)-$(process)
+#request_GPUs = 1
+log = logs/FAHClient-$(cluster)-$(process).log
+error = logs/FAHClient-$(cluster)-$(process).err
+output = logs/FAHClient-$(cluster)-$(process).out
+notification = never
+queue 24
