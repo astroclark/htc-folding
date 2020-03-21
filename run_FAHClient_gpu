@@ -6,12 +6,17 @@ mkdir -p ${workdir}
 pushd ${workdir}
 
 FAHClient --team 234340 --user jclark_astro --passkey 1733b9ade0070dabf0b4c753ee9af252 \
-  --cpu-usage 100  --cpus 1 --cycles 100 \
+  --cpu-usage 100  --cpus 48  --gpu=True  \
+  --disable-viz \
   --exit-when-done  \
+  --max-queue 1 \
+  --max-units 1 \
+  --cycles 100000 \
   --checkpoint 1
+  #--cpu-usage 100  --cpus 1 --cycles 100 \
   #--log-redirect \
 
 # Clean up any configuration data
-rm config.xml GPUs.txt
+rm -f config.xml GPUs.txt
 
 popd
